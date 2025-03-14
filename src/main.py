@@ -1,4 +1,3 @@
-# Model: gemini-1.5-pro-002
 import google.generativeai as genai
 from dotenv import load_dotenv
 import os
