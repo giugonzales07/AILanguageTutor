@@ -1,4 +1,4 @@
-# Model: gemini-1.5-pro
+# Model: gemini-1.5-pro-002
 import google.generativeai as genai
 from dotenv import load_dotenv
 import os
@@ -17,20 +17,24 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=GOOGLE_API_KEY)
 
 # Create a new instance of the model
-katron = genai.GenerativeModel(model_name="gemini-1.5-pro")
+model_name = "gemini-1.5-pro-002"
+katron = genai.GenerativeModel(model_name=model_name)
 
 # Start a new chat
 chat = katron.start_chat(history=[])
 
 print("\nOlá! Eu sou o Katron, um assistente de estudos. Vamos começar?\n")
 print("Digite 'exit' para sair.\n")
-prompt = input("O que vamos estudar hoje? ")
+print(to_markdown("Katron: O que vamos estudar hoje?"))
+prompt = input(" User: ")
+
+prompt_initial = "Eu quero ter uma aula de: "
 
 while prompt != "exit":
     #print(to_markdown(f'user: {prompt}') + '\n')
 
-    response = chat.send_message(prompt)
+    response = chat.send_message(prompt_initial + prompt)
     
-    print(to_markdown(f'{response.candidates[0].content.role}: {response.candidates[0].content.parts[0].text}'))
+    print(to_markdown(f'\nKatron: {response.candidates[0].content.parts[0].text}'))
     print("-------------------------------------------\n")
-    prompt = input("user: ")
+    prompt = input(" User: ")
