@@ -1,5 +1,7 @@
 # AILanguageTutor
-An AI language tutor made with Gemini API and Python
+An intelligent language tutor built using the Gemini API and Python. This project provides an interactive way to learn new languages with the help of an AI-powered assistant.
+
+Until now, the project runs in your terminal, an interface is coming soon, and a new feature using RAG techniques will be added.
 
 ## Technologies
   <div style="display: inline_block">
