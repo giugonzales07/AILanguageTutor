@@ -1,40 +1,40 @@
 import google.generativeai as genai
 from dotenv import load_dotenv
 import os
-import pandas as pd
 import json
-
-# Generate text embeddings
-def embed_fn(title, content):
-    # Create a new instance of the model
-    model = "models/embedding-001"
-    embeddings = genai.embed_content(model=model,
-                                    title=title,
-                                    content=content,
-                                    task_type="RETRIEVAL_DOCUMENT")["embedding"] # return just the list of embeddings
-    return embeddings
+import pandas as pd
+from src.ingestion import load_json
 
 # Load the API key from the .env file
 load_dotenv(override=True)
 GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=GOOGLE_API_KEY)
 
-json_file = "data/how_teach.json"
-language = "pt"
+# Generate text embeddings
+def embed_file(title, content, model):
+    # Create a new instance of the model
+    response = genai.embed_content(model=model,
+                                    title=title,
+                                    content=content,
+                                    task_type="RETRIEVAL_DOCUMENT")
+    return response["embedding"] # return just the list of embeddings
 
-with open(json_file, "r", encoding="utf-8") as file:
-    data = json.load(file)
+def save_json(new_json_file, json_file):
+    with open(new_json_file, "w", encoding="utf-8") as file:
+        json.dump(json_file, file, ensure_ascii=False, indent=2)
 
-for section in data:
-    print(section['title'])
-    print(section['content'])
-    embeddings = embed_fn(section['title'], section['content'])
-    #print(embeddings)
-    print("--------------------------------------------------")
-    section['embeddings'] = embeddings
-    print(section['embeddings'])
+def process_and_embed(input_json_file, output_json_file, model):
+    json_file = load_json(input_json_file)
 
-new_file = "data/how_teach_embeddings.json"
+    for section in json_file:
+        #print(section['title'])
+        #print(section['content'])
+        embeddings = embed_file(section['title'], section['content'], model)
+        #print(embeddings)
+        #print("--------------------------------------------------")
+        section['embeddings'] = embeddings
+        #print(section['embeddings'])
 
-with open(new_file, "w", encoding="utf-8") as file:
-    json.dump(data, file, ensure_ascii=False, indent=2)
+    save_json(output_json_file, json_file)
+
+

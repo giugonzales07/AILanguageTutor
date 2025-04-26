@@ -1,8 +1,10 @@
-# ETL data
+import json
 
-# data/how_teach.json
-json_file = "data/how_teach.json"
-language = "pt"
+def load_json(file_path):
+    with open(file_path, "r", encoding="utf-8") as file:
+        data = json.load(file)
+    return data
+
 
 
 

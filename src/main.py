@@ -1,8 +1,8 @@
+from src.embeddings import process_and_embed
+from src.retrieval import find_text_relevant
 import google.generativeai as genai
 from dotenv import load_dotenv
 import os
-
-# Output
 import textwrap
 
 # Functions
@@ -37,3 +37,22 @@ while prompt != "exit":
     print(to_markdown(f'\nKatron: {response.candidates[0].content.parts[0].text}'))
     print("-------------------------------------------\n")
     prompt = input(" User: ")
+
+
+def main():
+  model = "models/embedding-001"
+  input_json_file = "data/how_teach.json"
+  output_json_file = "data/how_teach_embeddings.json"
+
+
+  if not os.path.exists(output_json_file):
+    print("Embeddings não encontrados. Gerando...")
+    process_and_embed(input_json_file, output_json_file, model)
+  else:
+    print("Embeddings já existem. Pulando geração.")
+
+
+  contets = find_text_relevant(prompt, output_json_file, model)
+
+if __name__ == "__main__":
+    main()
