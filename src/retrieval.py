@@ -1,4 +1,4 @@
-# Gerar consulta e buscar nos documentos
+# Generete embeddings for the query and find the most relevant text in the documents
 
 from src.ingestion import load_json
 import google.generativeai as genai

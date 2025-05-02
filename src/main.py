@@ -52,7 +52,7 @@ def main():
     print("Embeddings já existem. Pulando geração.")
 
 
-  contets = find_text_relevant(prompt, output_json_file, model)
+  texts_relevant = find_text_relevant(prompt, output_json_file, model)
 
 if __name__ == "__main__":
     main()

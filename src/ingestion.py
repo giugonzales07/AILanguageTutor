@@ -1,3 +1,5 @@
+# Loanding data 
+
 import json
 
 def load_json(file_path):

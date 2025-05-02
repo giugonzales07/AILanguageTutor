@@ -1,3 +1,5 @@
+# Generates embeddings for the content of data
+
 import google.generativeai as genai
 from dotenv import load_dotenv
 import os
