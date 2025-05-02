@@ -8,6 +8,7 @@ pandas = "*"
 google-generativeai = "*"
 python-dotenv = "*"
 grpcio = "==1.60.1"
+pytest = "*"
 
 [dev-packages]
 ipykernel = "*"
