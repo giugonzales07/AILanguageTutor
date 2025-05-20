@@ -27,7 +27,7 @@ def create_chat(model):
   return chat
 
 def main():
-  model_gen = "gemini-1.5-pro"
+  model_gen = "gemini-2.0-flash-lite" # gemini-1.5-pro não tem limiti grátis 
   model_emb = "models/embedding-001"
   input_json_file = "data/how_teach.json"
   output_json_file = "data/how_teach_embeddings.json"
