@@ -42,11 +42,13 @@ def main():
     print("Embeddings já existem. Pulando geração.\n")
 
   print("\nOlá! Eu sou o Katron, seu assistente de estudos de idiomas. Vamos começar?\n")
-  print("Digite 'exit' para sair.\n")
+  print("Se quiser encerrar a conversa, basta digitar 'exit'.\n")
+  print(to_markdown("Katron: Qual seu nome?"))
+  name = input(" User:")
   print(to_markdown("Katron: O que vamos estudar hoje?"))
-  prompt = input(" User: ")
+  prompt = input(f" {name}: ")
 
-  prompt_initial = "Eu quero ter uma aula de: "
+  prompt_initial = f"Meu nome é {name} e eu quero ter uma aula de: "
   first = True
 
   while prompt != "exit":
@@ -59,9 +61,13 @@ def main():
         response = generate_response(prompt, texts_relevant, chat)
 
       print(to_markdown(f'\nKatron: {response.candidates[0].content.parts[0].text}'))
-      print("-------------------------------------------\n")
-      prompt = input(" User: ")
+      print("-----------------------------------------------------------------------------------\n")
+      prompt = input(f" {name}: ")
 
 
 if __name__ == "__main__":
     main()
+
+# Para rodar:
+# pipenv shell
+# $env:PYTHONPATH="." ; pipenv run python src/main.py
