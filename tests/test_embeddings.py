@@ -1,20 +1,36 @@
-from src.embeddings import process_and_embed
-import os
 import json
+from src.embeddings import process_and_embed
 
-def test_process_and_embed():
-    input_json_file = "data/how_teach.json"
-    output_json_file = "data/how_teach_embeddings.json"
-    model = "models/embedding-001"
+def test_process_and_embed(monkeypatch, tmp_path):
+    input_file = tmp_path / "input.json"
+    output_file = tmp_path / "output.json"
 
-    # Call the function to process and embed the JSON file
-    process_and_embed(input_json_file, output_json_file, model)
+    data = [
+        {
+            "title": "English vocabulary",
+            "content": "Walk means caminhar."
+        }
+    ]
 
-    # Check if the output file was created
-    assert os.path.exists(output_json_file), "Output JSON file was not created."
+    # Simula a leitura da base
+    monkeypatch.setattr(
+        "src.embeddings.load_json",
+        lambda file: data.copy()
+    )
 
-    # Load the output JSON file and check its contents
-    with open(output_json_file, "r", encoding="utf-8") as file:
-        data = json.load(file)
-        assert isinstance(data, list), "Output JSON file does not contain a list."
-        assert len(data) > 0, "Output JSON file is empty."
+    # Simula a geração do embedding
+    monkeypatch.setattr(
+        "src.embeddings.embed_file",
+        lambda title, content, model: [0.1, 0.2, 0.3]
+    )
+
+    process_and_embed(str(input_file), str(output_file), "test-model")
+
+    assert output_file.exists()
+
+    with open(output_file, "r", encoding="utf-8") as file:
+        result = json.load(file)
+
+    assert len(result) == 1
+    assert result[0]["title"] == "English vocabulary"
+    assert result[0]["embeddings"] == [0.1, 0.2, 0.3]

@@ -1,20 +1,37 @@
-from src.retrieval import find_text_relevant
+from src.retrieval import find_query
 
-def test_find_text_relevant():
-    # Test data
-    query = "Não sei falar caminhar em inglês, poderia me ajudar a traduzir?"
-    json_file = "data/how_teach_embeddings.json"
-    model = "models/embedding-001"
+def test_find_query_returns_most_relevant_content():
+    data = [
+        {
+            "content": "Walk means caminhar.",
+            "embeddings": [1, 0]
+        },
+        {
+            "content": "Apple means maçã.",
+            "embeddings": [0, 1]
+        },
+        {
+            "content": "Walking is an activity.",
+            "embeddings": [0.9, 0.1]
+        }
+    ]
 
-    # Call the function to find relevant text
-    result = find_text_relevant(query, json_file, model)
+    query_embedding = [1, 0]
 
-    # View the result
-    print("Result:", result)
+    result = find_query(query_embedding, data, top_k=1)
 
-    # Check if the result is a list and not empty
-    assert isinstance(result, list), "Result is not a list."
-    assert len(result) > 0, "Result is empty."
+    assert result == ["Walk means caminhar."]
 
-    # Check if the first element of the result is a string
-    assert isinstance(result[0], str), "First element of the result is not a string."
+
+def test_find_query_returns_top_k_results():
+    data = [
+        {"content": "Walk means caminhar.", "embeddings": [1, 0]},
+        {"content": "Apple means maçã.", "embeddings": [0, 1]},
+        {"content": "Walking is an activity.", "embeddings": [0.9, 0.1]}
+    ]
+
+    result = find_query([1, 0], data, top_k=2)
+
+    assert len(result) == 2
+    assert result[0] == "Walk means caminhar."
+    assert result[1] == "Walking is an activity."
