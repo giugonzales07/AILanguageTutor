@@ -19,7 +19,28 @@ The tutor interface is in **Portuguese**.
 ## Example session
 
 ```text
-[Paste a short, real example of a conversation here]
+Olá! Eu sou o Katron, seu assistente de estudos de idiomas. Vamos começar?
+
+Se quiser encerrar a conversa, basta digitar 'exit'.
+
+ Katron: Qual seu nome?
+ User:Giuliano
+ Katron: O que vamos estudar hoje?
+ Giuliano: Inglês
+
+ Katron: Hello, Giuliano! It's very nice to meet you. Welcome to your first English class!
+
+ Since this is our very first time talking, let's start with a quick and easy warm-up.
+
+ Can you answer this question in English? (Don't worry about making mistakes!)
+
+ "How are you today, Giuliano?"
+ (Como você está hoje?)
+
+ (You can answer something like: "I am fine, thank you", or "I'm a little tired, but excited", or just however you feel!)
+-----------------------------------------------------------------------------------
+
+ Giuliano:
 ```
 
 ## Technologies
