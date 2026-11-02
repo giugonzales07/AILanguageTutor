@@ -104,7 +104,7 @@ pipenv run [pytest]
 ```text
 ├── src/          # application code
 ├── tests/        # automated tests
-├── notebooks/    # [exploration notebooks — confirm]
+├── notebooks/    # exploration
 ├── Pipfile       # dependencies
 └── README.md
 ```
