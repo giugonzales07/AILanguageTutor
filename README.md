@@ -2,16 +2,23 @@
 
 An intelligent language tutor built with **Python** and the **Google Gemini API**. It provides an interactive way to learn new languages with the help of an AI-powered assistant.
 
-> **Status:** in active development. The project currently runs in your terminal. A web interface is coming soon, and a new feature using RAG techniques will be added.
-
-![Demo](docs/demo.gif)
-<!-- Add a short GIF or screenshot of a real session in docs/demo.gif -->
+> **Status:** in active development. The project currently runs in your terminal. A web interface is coming soon
 
 ## How it works
 
 1. **Embeddings:** on the first run, the teaching material in `data/how_teach.json` is converted into embeddings (`models/embedding-001`) and cached in `data/how_teach_embeddings.json`.
-2. **Retrieval:** for each user question, the most relevant passages are retrieved [by cosine similarity, top-k = N — confirm].
-3. **Generation:** the retrieved passages and the chat history are sent to Gemini (`gemini-2.0-flash-lite`), which answers as **Katron**, the tutor. [Confirm how the context is injected into the prompt.]
+2. **Retrieval:** for each user question, a semantic search over the embeddings finds the most relevant passages of the material.
+3. **Generation:** the retrieved passages are passed, together with the chat session, to Gemini (`gemini-2.0-flash-lite`), which answers as **Katron**, the tutor.
+
+```mermaid
+flowchart LR
+    A[Teaching material JSON] --> B[Embeddings]
+    B --> C[(Cached embeddings)]
+    D[User question] --> E[Semantic search]
+    C --> E
+    E --> F[Gemini + chat history]
+    F --> G[Katron's answer]
+```
 
 The tutor interface is in **Portuguese**.
 
