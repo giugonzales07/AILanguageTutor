@@ -28,7 +28,7 @@ def create_chat(model):
 
 def main():
   model_gen = "gemini-3.5-flash-lite" # gemini-1.5-pro não tem limiti grátis 
-  model_emb = "models/embedding-001"
+  model_emb = "models/gemini-embedding-001"
   input_json_file = "data/how_teach.json"
   output_json_file = "data/how_teach_embeddings.json"
   
@@ -70,4 +70,4 @@ if __name__ == "__main__":
 
 # Para rodar:
 # pipenv shell
-# $env:PYTHONPATH="."; pipenv run python -m src.main
+# pipenv run python -m src.main
