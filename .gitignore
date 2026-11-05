@@ -4,7 +4,8 @@ __pycache__/
 
 .env
 
-data/
+data/how_teach_embeddings.json
+data/how_teach_complete.json
 
 logs/
 *.log
