@@ -6,7 +6,7 @@ An intelligent language tutor built with **Python** and the **Google Gemini API*
 
 ## How it works
 
-1. **Embeddings:** on the first run, the teaching material in `data/how_teach.json` is converted into embeddings (`models/embedding-001`) and cached in `data/how_teach_embeddings.json`.
+1. **Embeddings:** on the first run, the teaching material in `data/how_teach.json` is converted into embeddings (`models/gemini-embedding-001`) and cached in `data/how_teach_embeddings.json`.
 2. **Retrieval:** for each user question, a semantic search over the embeddings finds the most relevant passages of the material.
 3. **Generation:** the retrieved passages are passed, together with the chat session, to Gemini (`gemini-3.5-flash-lite`), which answers as **Katron**, the tutor.
 
@@ -97,6 +97,7 @@ Never commit your `.env` file.
 ### Run
 
 ```bash
+pipenv shell
 pipenv run python -m src.main
 ```
 
