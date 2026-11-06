@@ -1,25 +1,24 @@
 from src.embeddings import process_and_embed
 from src.retrieval import find_text_relevant
 from src.generation import generate_response
-from src.config import get_client, GEMINI_MODEL
+from src.config import get_client, GEMINI_MODEL, SYSTEM_PROMPT, EMBEDDINGS_FILE, LESSONS_FILE
+from google.genai import types
 import os
 import textwrap
 
-
 # Functions
-def to_markdown(text):
-  formatted_text = text.replace('*', '')
-  return textwrap.indent(formatted_text, ' ', predicate=lambda _: True)
+# def to_markdown(text):
+#   formatted_text = text.replace('*', '')
+#   return textwrap.indent(formatted_text, ' ', predicate=lambda _: True)
 
 def main():
-  # model_gen = "gemini-3.5-flash-lite" # gemini-1.5-pro não tem limiti grátis 
-  # model_emb = "models/gemini-embedding-001"
-  input_json_file = "data/how_teach.json"
-  output_json_file = "data/how_teach_embeddings.json"
+  input_json_file = LESSONS_FILE
+  output_json_file = EMBEDDINGS_FILE
 
   client = get_client()
-  
-  chat = client.chats.create(model=GEMINI_MODEL, history=[])
+
+  config = types.GenerateContentConfig(system_instruction=SYSTEM_PROMPT) 
+  chat = client.chats.create(model=GEMINI_MODEL, config=config, history=[])
 
   if not os.path.exists(output_json_file):
     print("Embeddings não encontrados. Gerando...")
@@ -29,10 +28,12 @@ def main():
 
   print("\nOlá! Eu sou o Katron, seu assistente de estudos de idiomas. Vamos começar?\n")
   print("Se quiser encerrar a conversa, basta digitar 'exit'.\n")
-  print(to_markdown("Katron: Qual seu nome?"))
-  name = input(" User: ")
-  print(to_markdown("Katron: O que vamos estudar hoje?"))
-  prompt = input(f" {name}: ")
+  # print(to_markdown("Katron: Qual seu nome?"))
+  print("Katron: Qual seu nome?")
+  name = input("User: ")
+  # print(to_markdown("Katron: O que vamos estudar hoje?"))
+  print("Katron: O que vamos estudar hoje?")
+  prompt = input(f"{name}: ")
 
   prompt_initial = f"Meu nome é {name} e eu quero ter uma aula de: "
   first = True
@@ -46,9 +47,10 @@ def main():
         texts_relevant = find_text_relevant(prompt, output_json_file)
         response = generate_response(prompt, texts_relevant, chat)
 
-      print(to_markdown(f'\nKatron: {response.text}'))
+      # print(to_markdown(f'\nKatron: {response.text}'))
+      print(f'\nKatron: {response.text}')
       print("-----------------------------------------------------------------------------------\n")
-      prompt = input(f" {name}: ")
+      prompt = input(f"{name}: ")
 
 
 if __name__ == "__main__":

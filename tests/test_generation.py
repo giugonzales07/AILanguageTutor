@@ -13,7 +13,8 @@ def test_generate_response_uses_context():
 
     response = generate_response(query, context, chat)
 
-    assert response == "Resposta simulada"
-    assert query in chat.message
-    assert "Walk means caminhar." in chat.message
-    assert "sem inventar informações" in chat.message
+    assert response == "Resposta simulada"          # devolveu a resposta do chat
+    assert query in chat.message                    # a pergunta do aluno foi enviada
+    assert "Walk means caminhar." in chat.message   # o contexto foi enviado
+    assert "[Lição de referência]" in chat.message  # a marcação de contexto foi enviada
+    assert "[Mensagem do aluno]" in chat.message    # a marcação de pergunta do aluno foi enviada

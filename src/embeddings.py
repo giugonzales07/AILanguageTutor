@@ -8,7 +8,7 @@ import json
 # Generate text embeddings
 def embed_file(title, content):
 
-    client = get_client()
+    client = get_client() 
 
     # Create a new instance of the model
     config=types.EmbedContentConfig(
