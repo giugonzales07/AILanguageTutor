@@ -4,8 +4,6 @@ __pycache__/
 
 .env
 
-data/*_embeddings.json
-
 logs/
 *.log
 *.tmp
@@ -14,3 +12,6 @@ build/
 dist/
 
 .vscode/
+
+data/*_embeddings.json
+*.db

@@ -15,5 +15,7 @@ SYSTEM_PROMPT = (ROOT / "prompts" / "katron.md").read_text(encoding="utf-8")
 LESSONS_FILE = (ROOT / "data" / "lessons.json")
 EMBEDDINGS_FILE = (ROOT / "data" / "lessons_embeddings.json")
 
+DB_FILE = (ROOT / "data" / "errors.db")
+
 def get_client() -> genai.Client:
     return genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
