@@ -21,10 +21,10 @@ def test_process_and_embed(monkeypatch, tmp_path):
     # Simula a geração do embedding
     monkeypatch.setattr(
         "src.embeddings.embed_file",
-        lambda title, content, model: [0.1, 0.2, 0.3]
+        lambda title, content: [0.1, 0.2, 0.3]
     )
 
-    process_and_embed(str(input_file), str(output_file), "test-model")
+    process_and_embed(str(input_file), str(output_file))
 
     assert output_file.exists()
 

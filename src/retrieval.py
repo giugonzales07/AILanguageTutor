@@ -1,23 +1,24 @@
 # Generete embeddings for the query and find the most relevant text in the documents
 
 from src.ingestion import load_json
-import google.generativeai as genai
-from dotenv import load_dotenv
-import os
+from src.config import get_client, EMBEDDING_MODEL, EMBEDDING_DIM
+from google.genai import types
 import numpy as np
 
-# Load the API key from the .env file
-load_dotenv(override=True)
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
-genai.configure(api_key=GOOGLE_API_KEY)
-
-def embed_query(query, model):
+def embed_query(query):
     # Generate the embedding for the query
-    response = genai.embed_content(model=model,
-                                  content=query,
-                                  task_type="RETRIEVAL_QUERY")
+    client = get_client()
 
-    return response['embedding']
+    config=types.EmbedContentConfig(
+        task_type="RETRIEVAL_QUERY",
+        output_dimensionality=EMBEDDING_DIM)
+    
+    response = client.models.embed_content(
+        model=EMBEDDING_MODEL,
+        contents=query,
+        config=config)
+
+    return response.embeddings[0].values
 
 def normalize(vector):
     norm = np.linalg.norm(vector)
@@ -47,8 +48,8 @@ def find_query(query_embedding, data, top_k=1):
         results_text.append(data[index]["content"])
     return results_text
 
-def find_text_relevant(query, json_file, model):
-    query_embedding = embed_query(query, model)
+def find_text_relevant(query, json_file):
+    query_embedding = embed_query(query)
     data = load_json(json_file)
 
     text_relevant = find_query(query_embedding, data, top_k=1)

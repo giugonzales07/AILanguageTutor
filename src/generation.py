@@ -1,13 +1,6 @@
 # Generate the final response to user 
 
-import google.generativeai as genai
-from dotenv import load_dotenv
 import os
-
-# Load the API key from the .env file
-load_dotenv(override=True)
-GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY")
-genai.configure(api_key=GOOGLE_API_KEY)
 
 def generate_response(prompt, texts_relevant, chat):
     context = "\n\n".join(texts_relevant) if isinstance(texts_relevant, list) else texts_relevant
