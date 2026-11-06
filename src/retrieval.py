@@ -42,11 +42,11 @@ def find_query(query_embedding, data, top_k=1):
     #index = np.argmax(dot_product)
     top_k_indices = np.argsort(dot_product)[-top_k:][::-1]
 
-    results_text = []
+    results = []
     for index in top_k_indices:
-        # get the content according to the index
-        results_text.append(data[index]["content"])
-    return results_text
+        results.append(data[index])
+
+    return results
 
 def find_text_relevant(query, json_file):
     query_embedding = embed_query(query)
