@@ -2,6 +2,7 @@ from google import genai
 from dotenv import load_dotenv
 from pathlib import Path
 import os
+from functools import cache
 
 load_dotenv()
 
@@ -17,5 +18,6 @@ EMBEDDINGS_FILE = (ROOT / "data" / "lessons_embeddings.json")
 
 DB_FILE = (ROOT / "data" / "errors.db")
 
+@cache
 def get_client() -> genai.Client:
     return genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))

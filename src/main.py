@@ -1,9 +1,4 @@
-from src.embeddings import process_and_embed
-from src.config import get_client, GEMINI_MODEL, SYSTEM_PROMPT, EMBEDDINGS_FILE, LESSONS_FILE, DB_FILE
-from src.db import init_db
-from src.tools import create_tools
-from google.genai import types
-import os
+from src.agent import prepare, create_chat
 import logging
 import uuid
 
@@ -14,26 +9,14 @@ def main():
   logging.getLogger("httpx2").setLevel(logging.WARNING)
   logging.getLogger("google_genai.chats").setLevel(logging.WARNING)
 
-  # create the embeddings file if it doesn't exist
-  if not os.path.exists(EMBEDDINGS_FILE):
-    print("Embeddings não encontrados. Gerando...")
-    process_and_embed(LESSONS_FILE, EMBEDDINGS_FILE)
-  else:
-    print("Embeddings já existem. Pulando geração.\n")
+  # create the embeddings and database
+  prepare()
 
-  # create the database
-  init_db(DB_FILE)
-
-  # create a unique session id for this conversation and the tools
+  # create a unique session id for this conversation
   session_id = str(uuid.uuid4())
-  tools = create_tools(session_id)
 
-  # create the chat client
-  client = get_client()
-  config = types.GenerateContentConfig(
-     system_instruction=SYSTEM_PROMPT,
-     tools=tools) 
-  chat = client.chats.create(model=GEMINI_MODEL, config=config, history=[])
+  # create the chat client with the tools
+  chat = create_chat(session_id)
 
   print("\nOlá! Eu sou o Katron, seu assistente de estudos de idiomas. Vamos começar?\n")
   print("(Se quiser encerrar a conversa, basta digitar 'exit')\n")

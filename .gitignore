@@ -15,3 +15,4 @@ dist/
 
 data/*_embeddings.json
 *.db
+.gradio/
