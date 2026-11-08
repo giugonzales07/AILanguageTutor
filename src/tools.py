@@ -33,7 +33,6 @@ def create_tools(session_id: str, db_path=DB_FILE):
         best = find_query(query_embedding, lessons, top_k=1)[0]
         return f"Lição: {best['title']}\n\n{best['content']}"
 
-
     def log_error(error_type: str, sentence: str, correction: str) -> str:
         """Registra um erro de inglês cometido pelo aluno, para acompanhar o progresso dele.
 

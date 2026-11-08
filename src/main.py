@@ -1,37 +1,46 @@
 from src.embeddings import process_and_embed
-from src.retrieval import find_text_relevant
-from src.generation import generate_response
-from src.config import get_client, GEMINI_MODEL, SYSTEM_PROMPT, EMBEDDINGS_FILE, LESSONS_FILE
+from src.config import get_client, GEMINI_MODEL, SYSTEM_PROMPT, EMBEDDINGS_FILE, LESSONS_FILE, DB_FILE
+from src.db import init_db
+from src.tools import create_tools
 from google.genai import types
 import os
-import textwrap
-
-# Functions
-# def to_markdown(text):
-#   formatted_text = text.replace('*', '')
-#   return textwrap.indent(formatted_text, ' ', predicate=lambda _: True)
+import logging
+import uuid
 
 def main():
-  input_json_file = LESSONS_FILE
-  output_json_file = EMBEDDINGS_FILE
+  # Show logs only for our code, not for httpx or other libraries
+  logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
+  logging.getLogger("httpx").setLevel(logging.WARNING)
+  logging.getLogger("httpx2").setLevel(logging.WARNING)
+  logging.getLogger("google_genai.chats").setLevel(logging.WARNING)
 
-  client = get_client()
-
-  config = types.GenerateContentConfig(system_instruction=SYSTEM_PROMPT) 
-  chat = client.chats.create(model=GEMINI_MODEL, config=config, history=[])
-
-  if not os.path.exists(output_json_file):
+  # create the embeddings file if it doesn't exist
+  if not os.path.exists(EMBEDDINGS_FILE):
     print("Embeddings não encontrados. Gerando...")
-    process_and_embed(input_json_file, output_json_file)
+    process_and_embed(LESSONS_FILE, EMBEDDINGS_FILE)
   else:
     print("Embeddings já existem. Pulando geração.\n")
 
+  # create the database
+  init_db(DB_FILE)
+
+  # create a unique session id for this conversation and the tools
+  session_id = str(uuid.uuid4())
+  tools = create_tools(session_id)
+
+  # create the chat client
+  client = get_client()
+  config = types.GenerateContentConfig(
+     system_instruction=SYSTEM_PROMPT,
+     tools=tools) 
+  chat = client.chats.create(model=GEMINI_MODEL, config=config, history=[])
+
   print("\nOlá! Eu sou o Katron, seu assistente de estudos de idiomas. Vamos começar?\n")
-  print("Se quiser encerrar a conversa, basta digitar 'exit'.\n")
-  # print(to_markdown("Katron: Qual seu nome?"))
+  print("(Se quiser encerrar a conversa, basta digitar 'exit')\n")
+
   print("Katron: Qual seu nome?")
   name = input("User: ")
-  # print(to_markdown("Katron: O que vamos estudar hoje?"))
+
   print("Katron: O que vamos estudar hoje?")
   prompt = input(f"{name}: ")
 
@@ -39,15 +48,10 @@ def main():
   first = True
 
   while prompt != "exit":
-      #print(to_markdown(f'user: {prompt}') + '\n')
-      if first:
-        response = chat.send_message(prompt_initial + prompt)
-        first = False
-      else:
-        texts_relevant = find_text_relevant(prompt, output_json_file)
-        response = generate_response(prompt, texts_relevant, chat)
+      message = prompt_initial + prompt if first else prompt
+      first = False
+      response = chat.send_message(message)  
 
-      # print(to_markdown(f'\nKatron: {response.text}'))
       print(f'\nKatron: {response.text}')
       print("-----------------------------------------------------------------------------------\n")
       prompt = input(f"{name}: ")

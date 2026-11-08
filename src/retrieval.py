@@ -47,11 +47,3 @@ def find_query(query_embedding, data, top_k=1):
         results.append(data[index])
 
     return results
-
-def find_text_relevant(query, json_file):
-    query_embedding = embed_query(query)
-    data = load_json(json_file)
-
-    text_relevant = find_query(query_embedding, data, top_k=1)
-
-    return text_relevant
