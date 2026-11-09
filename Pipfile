@@ -5,13 +5,13 @@ name = "pypi"
 
 [packages]
 pandas = "*"
-google-generativeai = "*"
 python-dotenv = "*"
-grpcio = "==1.60.1"
-pytest = "*"
+google-genai = "*"
+gradio = "*"
 
 [dev-packages]
 ipykernel = "*"
+pytest = "*"
 
 [requires]
 python_version = "3.11"

@@ -1,0 +1,20 @@
+[
+  {"message": "O que é present perfect?", "expected_tool": "search_lessons", "expected_lesson": "present-perfect"},
+  {"message": "Quando eu uso much e quando uso many?", "expected_tool": "search_lessons", "expected_lesson": "much-many"},
+  {"message": "Qual a diferença entre will e going to?", "expected_tool": "search_lessons", "expected_lesson": "will-vs-going-to"},
+  {"message": "Me explica quando usar in, on e at com horários e dias", "expected_tool": "search_lessons", "expected_lesson": "prepositions-time"},
+  {"message": "Actually significa atualmente?", "expected_tool": "search_lessons", "expected_lesson": "false-cognates"},
+
+  {"message": "Yesterday I goed to school", "expected_tool": "log_error", "expected_error_type": "simple-past-irregular"},
+  {"message": "She is engineer", "expected_tool": "log_error", "expected_error_type": "articles"},
+  {"message": "He don't like coffee", "expected_tool": "log_error", "expected_error_type": "simple-present"},
+  {"message": "She can to swim very well", "expected_tool": "log_error", "expected_error_type": "modals"},
+  {"message": "My brother is more taller than me", "expected_tool": "log_error", "expected_error_type": "comparatives-superlatives"},
+
+  {"message": "Quais erros eu mais cometo?", "expected_tool": "get_progress"},
+  {"message": "No que eu preciso melhorar?", "expected_tool": "get_progress"},
+
+  {"message": "Obrigado!", "expected_tool": null},
+  {"message": "Oi, tudo bem?", "expected_tool": null},
+  {"message": "Me passa uma receita de pizza", "expected_tool": null}
+]

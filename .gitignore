@@ -4,12 +4,15 @@ __pycache__/
 
 .env
 
-data/how_teach_embeddings.json
-data/how_teach_complete.json
-
 logs/
 *.log
 *.tmp
 
 build/
 dist/
+
+.vscode/
+
+data/*_embeddings.json
+*.db
+.gradio/

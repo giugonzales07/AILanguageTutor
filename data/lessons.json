@@ -1,0 +1,92 @@
+[
+  {
+    "id": "verb-to-be",
+    "title": "Verbo to be",
+    "level": "A1",
+    "content": "O verbo to be significa “ser” ou “estar”. No presente: I am, you are, he/she/it is, we are, they are. Na fala, as contrações são comuns: I’m, you’re, she’s, we’re, they’re. Na negativa, acrescente not (I am not, she isn’t, they aren’t). Na pergunta, inverta a ordem: “Are you tired?”, “Is he a teacher?”. Exemplos: “I am a student.” / “She is at home now.” Erro comum de quem fala português: omitir o sujeito ou o verbo, como em “Is cold today” ou “I tired”. Em inglês, a frase precisa de sujeito e verbo: “It is cold today”, “I am tired”. Também se usa to be para falar de idade: “I am 25 years old”, e não “I have 25 years”."
+  },
+  {
+    "id": "simple-present",
+    "title": "Simple present (o -s da 3ª pessoa)",
+    "level": "A1",
+    "content": "O simple present expressa hábitos, rotinas e verdades gerais. Na 3ª pessoa do singular (he, she, it), o verbo ganha -s: she works, he plays. Verbos terminados em -o, -sh, -ch, -x e -ss ganham -es (goes, watches); consoante + y vira -ies (study → studies). Na negativa e na pergunta, use do/does, e o verbo volta à forma base: “She doesn’t work on Sundays.”, “Does he like coffee?”. Exemplos: “I work from home.” / “My brother plays soccer every weekend.” Erro comum de quem fala português: esquecer o -s, como em “She work in a bank”, ou mantê-lo depois de does, como em “Does she works?”. O correto é “She works in a bank” e “Does she work?”."
+  },
+  {
+    "id": "present-continuous",
+    "title": "Present continuous",
+    "level": "A1",
+    "content": "O present continuous descreve ações que estão acontecendo agora ou planos já combinados para o futuro próximo. Forma: am/is/are + verbo com -ing. Exemplos: “I am studying English right now.” / “We are meeting Ana tomorrow.” Na negativa: “She isn’t working today.” Na pergunta: “Are you listening?”. Erro comum de quem fala português: usar o simple present para algo que está acontecendo agora, como “I study now” em vez de “I am studying now”, ou esquecer o verbo to be: “I studying”. Atenção: verbos de estado, como know, like, want e need, normalmente não vão para o -ing. Diga “I want coffee”, e não “I am wanting coffee”."
+  },
+  {
+    "id": "simple-past-regular",
+    "title": "Simple past (verbos regulares)",
+    "level": "A2",
+    "content": "O simple past fala de ações terminadas em um momento definido do passado (yesterday, last week, in 2020). Verbos regulares ganham -ed: work → worked, play → played. Os terminados em -e ganham só -d (live → lived); consoante + y vira -ied (study → studied); alguns dobram a consoante final (stop → stopped). Na negativa e na pergunta, use did, e o verbo volta à forma base: “I didn’t watch TV.”, “Did you call her?”. Exemplos: “I worked late yesterday.” / “We visited my grandparents last weekend.” Erro comum: manter o -ed depois de did, como em “Did you watched the game?” ou “I didn’t liked it”. O correto é “Did you watch the game?” e “I didn’t like it”."
+  },
+  {
+    "id": "simple-past-irregular",
+    "title": "Simple past (verbos irregulares)",
+    "level": "A2",
+    "content": "Muitos verbos comuns são irregulares no passado e não seguem a regra do -ed, então é preciso memorizá-los: go → went, have → had, do → did, make → made, see → saw, eat → ate, buy → bought, take → took, come → came, get → got. Exemplos: “I went to the beach last summer.” / “She bought a new phone yesterday.” Na negativa e na pergunta, use did com o verbo na forma base: “I didn’t go.”, “Did you see the movie?”. Erro comum: aplicar a regra do -ed a verbos irregulares, como “I goed”, “I buyed” ou “she eated”. Outro erro frequente é usar a forma do passado depois de did: “Did you went?”. O correto é “Did you go?”."
+  },
+  {
+    "id": "present-perfect",
+    "title": "Present perfect",
+    "level": "B1",
+    "content": "O present perfect liga o passado ao presente. Forma: have/has + particípio passado (worked, gone, seen, eaten). Usos principais: experiências de vida sem data definida (“I have been to London”), ações que começaram no passado e continuam (“She has lived here for five years”) e resultados presentes de algo recente (“I have lost my keys”, ou seja, elas ainda estão perdidas). Palavras comuns com esse tempo: ever, never, already, yet, just, for e since. Erro comum de quem fala português: traduzir “moro aqui há cinco anos” como “I live here for five years”. O correto é “I have lived here for five years”. Use for com períodos (for two years) e since com o ponto de início (since 2020)."
+  },
+  {
+    "id": "present-perfect-vs-simple-past",
+    "title": "Present perfect × simple past",
+    "level": "B1",
+    "content": "A diferença está no tempo. O simple past fala de um momento terminado e definido; o present perfect, de um tempo não especificado ou que ainda não terminou. Compare: “I saw that movie last week” (quando: semana passada) e “I have seen that movie” (experiência, sem data). Ou: “I lost my keys yesterday” e “I have lost my keys” (elas ainda estão perdidas). Regra prática: se aparece uma expressão de tempo terminado, como yesterday, last year, in 2019 ou two days ago, use o simple past. Erro comum: usar o present perfect com tempo definido, como em “I have visited Paris in 2019”. O correto é “I visited Paris in 2019”. Sem a data, fica “I have visited Paris”."
+  },
+  {
+    "id": "will-vs-going-to",
+    "title": "Will × going to",
+    "level": "A2",
+    "content": "As duas formas falam do futuro, com nuances diferentes. Will expressa decisões tomadas na hora, promessas, ofertas e previsões baseadas em opinião: “I’ll help you with that.”, “I think it will rain tomorrow.” Going to expressa planos já decididos e previsões baseadas em evidências visíveis: “I’m going to visit my parents next weekend.”, “Look at those clouds! It’s going to rain.” Depois de will e de going to, o verbo fica na forma base: “She will call you”, e não “She will calls you”. Erro comum: usar will para um plano já combinado, como em “I will travel to Bahia next month, I bought the tickets”. Com a passagem comprada, é um plano: “I’m going to travel to Bahia next month”."
+  },
+  {
+    "id": "articles",
+    "title": "Artigos a, an e the",
+    "level": "A1",
+    "content": "A e an são artigos indefinidos e significam “um” ou “uma”. Use a antes de som de consoante (a car, a university) e an antes de som de vogal (an apple, an hour). O que vale é o som, não a letra. The é o artigo definido e indica algo específico ou já mencionado: “I saw a dog. The dog was very big.” Exemplos: “She is an engineer.” / “Can you close the door?” Erros comuns de quem fala português: omitir o artigo com profissões, como em “She is engineer” (o correto é “She is an engineer”), e usar the para generalizar, como em “The life is beautiful” ou “I like the music”. Em generalizações, o inglês não usa artigo: “Life is beautiful”, “I like music”."
+  },
+  {
+    "id": "prepositions-time",
+    "title": "Preposições de tempo (in, on, at)",
+    "level": "A2",
+    "content": "Para falar de tempo, use at para horários exatos e alguns momentos (at 7 o’clock, at night, at noon); on para dias e datas (on Monday, on May 5th, on my birthday); e in para meses, anos, estações e partes do dia (in July, in 2024, in the summer, in the morning). Exemplos: “The meeting is at 3 p.m. on Friday.” / “I was born in 1998.” Não use preposição antes de next, last, this e every: “I’ll see you next week”, e não “in next week”. Erro comum de quem fala português: usar in para tudo, por causa do “em”, como em “in Monday” ou “in 8 o’clock”. O correto é “on Monday” e “at 8 o’clock”."
+  },
+  {
+    "id": "prepositions-place",
+    "title": "Preposições de lugar (in, on, at)",
+    "level": "A2",
+    "content": "Para falar de lugar, use in para espaços fechados ou delimitados (in the room, in the box, in Brazil, in São Paulo); on para superfícies (on the table, on the wall, on the second floor); e at para pontos específicos ou locais de atividade (at the bus stop, at work, at school, at home). Exemplos: “The keys are on the table.” / “She is at work now.” / “I live in Curitiba.” Erro comum de quem fala português: usar in para tudo, por causa do “em”, como em “I am in home” ou “The picture is in the wall”. O correto é “I am at home” e “The picture is on the wall”. Com home e verbo de movimento, não use preposição: “I’m going home”, e não “I’m going to home”."
+  },
+  {
+    "id": "much-many",
+    "title": "Much e many (contáveis e incontáveis)",
+    "level": "A2",
+    "content": "Substantivos contáveis podem ser contados e têm plural (book → books, apple → apples). Os incontáveis não têm plural (water, money, information, advice, furniture). Use many com contáveis e much com incontáveis, principalmente em perguntas e negativas: “How many books do you have?”, “I don’t have much time.” Em frases afirmativas, a lot of serve para os dois: “She has a lot of friends.”, “We drank a lot of water.” Para perguntar o preço, use “How much is it?”. Erro comum de quem fala português: colocar plural em incontáveis, como “informations”, “advices” ou “furnitures”. O correto é “some information”, “a piece of advice” e “some furniture”. Também é comum dizer “How much people?” no lugar de “How many people?”."
+  },
+  {
+    "id": "comparatives-superlatives",
+    "title": "Comparativos e superlativos",
+    "level": "A2",
+    "content": "Adjetivos curtos, de uma sílaba, recebem -er no comparativo e -est no superlativo: tall → taller → the tallest. Adjetivos longos usam more e the most: expensive → more expensive → the most expensive. Adjetivos de duas sílabas terminados em -y trocam o y por i: happy → happier → the happiest. Os irregulares mais comuns são good → better → the best e bad → worse → the worst. No comparativo, use than: “My brother is taller than me.” Exemplos: “This book is more interesting than the movie.” / “It’s the best restaurant in town.” Erros comuns: duplicar a comparação, como em “more bigger” ou “more better” (o correto é “bigger” e “better”), e usar that no lugar de than: “She is older that me” deve ser “She is older than me”."
+  },
+  {
+    "id": "modals",
+    "title": "Modais can, should e must",
+    "level": "A2",
+    "content": "Can indica habilidade, possibilidade ou permissão: “I can swim.”, “Can I open the window?”. Should dá conselhos e recomendações: “You should drink more water.” Must indica obrigação forte ou uma conclusão lógica: “You must wear a seatbelt.”, “She must be tired after the trip.” Depois de um modal, o verbo fica sempre na forma base, sem to e sem -s: “She can speak French”, e não “She can to speak” nem “She cans speak”. Na negativa, coloque not depois do modal: can’t, shouldn’t, mustn’t. Atenção: mustn’t indica proibição (“You mustn’t smoke here”). Para dizer que algo não é necessário, use don’t have to: “You don’t have to come.”"
+  },
+  {
+    "id": "false-cognates",
+    "title": "Falsos cognatos",
+    "level": "B1",
+    "content": "Falsos cognatos são palavras parecidas com o português, mas com outro significado. Os mais comuns: actually significa “na verdade”, não “atualmente” (que é currently ou nowadays). Pretend significa “fingir”, não “pretender” (que é intend ou plan to). Push significa “empurrar”; puxar é pull. Exquisite significa “requintado”, não “esquisito” (que é weird ou strange). College é faculdade, não colégio (que é school). Library é biblioteca; livraria é bookstore. Parents são os pais; parentes são relatives. Exemplos: “Actually, I’m from Recife, not Salvador.” / “He pretended to be sick.” Erro comum: dizer “Actually I work at a bank” querendo dizer “atualmente”. O correto é “Currently, I work at a bank”."
+  }
+]
